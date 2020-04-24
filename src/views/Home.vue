@@ -26,13 +26,13 @@ import ResetButton from '@/components/ResetButton.vue';
 export default class Home extends Vue {
   public greetText: string = 'Hello';
   private count: number = 0;
-  private isRegurars: boolean = false;
+
+  public get isRegurars(): boolean {
+    return this.count >= 5;
+  }
 
   public onMyButtonClicked(count: number) {
     this.count = count;
-    if (this.count >= 5) {
-      this.isRegurars = true;
-    }
     this.greetText = 'こんにちは';
   }
 }
