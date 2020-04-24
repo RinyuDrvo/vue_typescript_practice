@@ -7,11 +7,15 @@ import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class ResetButton extends Vue {
-  @Prop()
   public initialValue!: string;
 
   @Prop()
   public value!: string;
+
+  // ライフサイクルフック
+  public created() {
+    this.initialValue = this.value;
+  }
 
   @Emit()
   public input(value: string) {
